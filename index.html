@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabora | Repostería Fantasma en el Oriente Antioqueño</title>
+    <!-- Google Fonts: Inter para legibilidad y Playfair Display para elegancia artesanal -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS para utilidades de diseño rápido y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons para iconografía limpia -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --crema: #FDFBF7;
+            --beige: #F5E6D3;
+            --cafe-suave: #A67C52;
+            --cafe-oscuro: #9C6D41;
+            --acento: #D9A066;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--crema);
+            color: var(--cafe-oscuro);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Animación de flotación para el Hero */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .float-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Efecto de profundidad en capas */
+        .parallax-layer {
+            transition: transform 0.2s cubic-bezier(0.1, 0.7, 1.0, 0.1);
+        }
+
+        /* Degradado suave para secciones */
+        .bg-soft-gradient {
+            background: linear-gradient(180deg, rgba(253,251,247,1) 0%, rgba(245,230,211,0.5) 100%);
+        }
+
+        /* Estilo personalizado de botones */
+        .btn-primary {
+            background-color: var(--cafe-oscuro);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(74, 55, 40, 0.2);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--cafe-suave);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(74, 55, 40, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--cafe-oscuro);
+            color: var(--cafe-oscuro);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--cafe-oscuro);
+            color: white;
+        }
+
+        /* Card de producto interactiva */
+        .product-card {
+            background: white;
+            border: 1px solid rgba(166, 124, 82, 0.1);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* Fade in animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-beige py-4">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="img/lgsabora.png" alt="Logo de Mi Marca" class="h-20 w-auto object-contain">
+                </div>
+            <div class="hidden md:flex space-x-8 text-sm font-bold uppercase tracking-widest">
+                <a href="#inicio" class="hover:text-acento transition-colors">Inicio</a>
+                <a href="#historia" class="hover:text-acento transition-colors">Nuestra Historia</a>
+                <a href="#productos" class="hover:text-acento transition-colors">Productos</a>
+                <a href="#contacto" class="hover:text-acento transition-colors">Contacto</a>
+            </div>
+            <a href="https://wa.me/573225809278" target="_blank" class="bg-[#9C6D41] text-white px-6 py-3 rounded-full text-xs uppercase font-bold tracking-widest hover:brightness-110 shadow-md transition-all">
+            Pedir Ahora
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="relative min-h-screen flex items-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <!-- Capas decorativas sutiles -->
+            <div class="absolute top-20 right-[-10%] w-[500px] h-[500px] bg-beige rounded-full opacity-30 blur-3xl"></div>
+            <div class="absolute bottom-10 left-[-5%] w-[400px] h-[400px] bg-acento rounded-full opacity-10 blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-8">
+                <div>
+                    <span class="inline-block px-4 py-1 bg-beige text-cafe-suave rounded-full text-sm font-semibold mb-4">Repostería Artesanal en el Oriente</span>
+                    <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+                        <span id="typed-text">Postres que saben a hogar</span>
+                    </h1>
+                </div>
+                <p class="text-lg text-gray-600 max-w-lg leading-relaxed">
+                    Hechos a mano con amor en el Oriente Antioqueño. Llevamos la dulzura de lo tradicional directamente a tu puerta en  Rionegro,Marinilla,Guarne.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/573225809278?text=Hola!%20Quiero%20hacer%20un%20pedido" target="_blank" class="btn-primary px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold">
+                        <i data-lucide="message-circle"></i> Haz tu pedido por WhatsApp
+                    </a>
+                    <a href="docs/Catalogo_sabora_2026.pdf" target="_blank" class="btn-outline px-8 py-4 rounded-xl flex items-center justify-center gap-2 font-semibold">
+                        <i data-lucide="book-open"></i> Ver catálogo
+                    </a>
+                </div>
+            </div>
+
+            <div class="relative flex justify-center items-center">
+                <!-- Imagen principal con efecto de profundidad -->
+                <div class="relative w-full max-w-md">
+                    <div class="float-element relative z-20 rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="img/tortachocolate.jpeg" alt="Pastel Artesanal Sabora" class="w-full h-[500px] object-cover">
+                    </div>
+                    <!-- Elementos decorativos flotantes -->
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-white p-4 rounded-2xl shadow-xl z-30 float-element" style="animation-delay: -2s;">
+                        <img src="img/alfajores.png" alt="Detalle Postre" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                    <div class="absolute -bottom-6 -left-10 w-40 h-40 bg-white p-4 rounded-2xl shadow-xl z-30 float-element" style="animation-delay: -4s;">
+                        <img src="img/donas.png" alt="Detalle Frutos" class="w-full h-full object-cover rounded-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acerca de Mí / Storytelling -->
+    <section id="historia" class="py-24 bg-soft-gradient">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <div class="relative">
+                        <img src="img/historia 2.png" alt="la repostera" class="rounded-3xl shadow-xl w-full h-[600px] object-cover">
+                        <div class="absolute bottom-8 right-8 bg-cafe-oscuro text-white p-8 rounded-2xl max-w-xs shadow-2xl">
+                            <p class="font-serif italic text-xl jus">"Creo en los sabores que cuentan historias y en los detalles que hacen sonreír"</p>
+                        </div>
+                    </div>
+                </div>
+               <div class="space-y-8 reveal" style="transition-delay: 0.2s;">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900">
+        Sabora. Repostería con alma...
+    </h2>
+
+    <div class="space-y-4">
+        <p class="text-gray-600 text-lg leading-relaxed text-justify">
+            Creemos que cada bocado debe ser una experiencia mágica. Creamos tortas a tu medida, galletas y postres con el equilibrio perfecto entre lo casero y lo gourmet, usando ingredientes frescos y recetas únicas que hacen que cada creación hable por sí misma.
+        </p>
+
+        <p class="text-gray-600 text-lg leading-relaxed text-justify">
+            Sabora Repostería Fantasma nació de un sueño muy sencillo pero poderoso: compartir la magia de lo hecho en casa. Soy Cristina, la líder de este proyecto, una apasionada de la cocina y la repostería que siempre ha encontrado en los postres una forma de transmitir cariño y momentos especiales.
+        </p>
+
+        <p class="text-gray-600 text-lg leading-relaxed text-justify">
+            Este proyecto surge del deseo de ofrecer un concepto diferente: una “repostería fantasma”, donde lo importante no es un gran local físico, sino la calidad, el sabor auténtico y la experiencia que llega directo a la mesa de cada cliente. Con Sabora, queremos invitarte a descubrir que el verdadero lujo está en disfrutar lo auténtico.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-6">
+        <div class="p-6 bg-white rounded-2xl border border-beige shadow-sm">
+            <h4 class="font-bold text-cafe-suave text-2xl mb-2">100%</h4>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">Hecho a mano</p>
+        </div>
+        <div class="p-6 bg-white rounded-2xl border border-beige shadow-sm">
+            <h4 class="font-bold text-cafe-suave text-2xl mb-2">Oriente</h4>
+            <p class="text-sm text-gray-500 uppercase tracking-widest">Antioqueño</p>
+        </div>
+    </div>
+</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section id="productos" class="py-24 bg-white">
+        <div class="container mx-auto px-6">    
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">Nuestras Tentaciones</h2>
+                <p class="text-gray-600">Creamos a tu medida: desde un antojo hasta tus eventos especiales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Producto 1 -->
+                <div class="product-card p-4 rounded-[2rem] reveal">
+                    <div class="relative h-64 overflow-hidden rounded-[1.5rem] mb-6">
+                        <img src="img/torta de zanahoria.png" alt="Tarta de zanahoria" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="text-2xl font-bold mb-2">Nuestras tortas</h3>
+                        <p class="text-gray-500 text-sm mb-6">Disfruta de la perfección en nuestros sabores clásicos como Chocolate de origen, Zanahoria artesanal, Red Velvet y Oreo Cream. ¿Tienes una idea en mente? Convertimos tus sueños en realidad: desde diseños temáticos como La Sirenita hasta propuestas exclusivas para bautizos y mesas de postres. El detalle perfecto para regalar, compartir en casa o protagonizar tus eventos más especiales.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-cafe-oscuro"> Tortas Clasicas Desde $45.000. Tortas de Diseño: Cotización personalizada según tu idea. </span>
+                            <a href="https://wa.me/573225809278?text=Hola!%20Me%20interesa%20la%20Tarta%20de%2%20s" class="p-3 bg-beige rounded-full text-cafe-oscuro hover:bg-cafe-oscuro hover:text-white transition-all">
+                                <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="product-card p-4 rounded-[2rem] reveal" style="transition-delay: 0.1s;">
+                    <div class="relative h-64 overflow-hidden rounded-[1.5rem] mb-6">
+                        <img src="img/galletas ny.png" alt="Galletas new york style" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="text-2xl font-bold mb-2">Galletas New York Style</h3>
+                        <p class="text-gray-500 text-sm mb-6">Creadas para los amantes del chocolate real. Son el detalle perfecto para regalar, el antojo ideal para disfrutar en casa o la pieza estrella que elevará tu mesa de postres en cualquier evento. Calidad artesanal con un diseño que enamora.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-cafe-oscuro"> Desde $34.000  (disponible en cajas de regalo y pedidos al por mayor)</span>
+                            <a href="https://wa.me/573225809278?text=Hola!%20Me%20interesa%20el%20GalletasNewyork%20de%20" class="p-3 bg-beige rounded-full text-cafe-oscuro hover:bg-cafe-oscuro hover:text-white transition-all">
+                                <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="product-card p-4 rounded-[2rem] reveal" style="transition-delay: 0.2s;">
+                    <div class="relative h-64 overflow-hidden rounded-[1.5rem] mb-6">
+                        <img src="img/donas.png" alt="Brownies" class="w-full h-full object-cover">
+                    </div>
+                    <div class="px-4 pb-4">
+                        <h3 class="text-2xl font-bold mb-2">Nuestras Donas</h3>
+                        <p class="text-gray-500 text-sm mb-6">Descubre la suavidad perfecta en nuestras donas hechas a mano. Desde los sabores clásicos y reconfortantes hasta combinaciones creativas para tus mesas de postres, bautizos o meriendas especiales. Son el detalle ideal para regalar una sonrisa, disfrutar un antojo único o sorprender a tus invitados con una estación de dulces moderna y deliciosa</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-bold text-cafe-oscuro">Donas Clásicas: Desde $25.000 (Caja/Set).Donas Personalizadas y Eventos: Cotización personalizada según diseño y cantidad.</span>
+                            <a href="https://wa.me/573225809278?text=Hola!%20Me%20interesa%20la%20Caja%20de%20Donas" class="p-3 bg-beige rounded-full text-cafe-oscuro hover:bg-cafe-oscuro hover:text-white transition-all">
+                                <i data-lucide="shopping-cart" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="docs/Catalogo_sabora_2026.pdf" target="_blank" class="inline-flex items-center gap-2 text-cafe-oscuro font-bold hover:underline decoration-acento underline-offset-8">
+                    Ver todos los productos en el catálogo <i data-lucide="arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-24 bg-[#9C6D41] text-white overflow-hidden relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-3xl font-serif text-center mb-16 italic text-white">
+                "No es solo un postre, es un momento de felicidad en casa."
+            </h2>
+            
+            <div class="flex flex-wrap justify-center gap-12">
+                <div class="max-w-xs text-center space-y-4">
+                    <div class="flex justify-center text-[#F5E6D3]"> <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                    </div>
+                    <p class="text-white text-lg italic leading-relaxed">
+                        "La mejor torta de chocolate que he probado en Rionegro. La presentación es impecable."
+                    </p>
+                    <p class="font-bold text-white uppercase tracking-widest text-sm">
+                        — Carlos G. (Rionegro)
+                    </p>
+                </div>
+
+                <div class="max-w-xs text-center space-y-4">
+                    <div class="flex justify-center text-[#F5E6D3]"> <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                        <i data-lucide="star" class="fill-current"></i>
+                    </div>
+                    <p class="text-white text-lg italic leading-relaxed">
+                       " ¡Fue perfectooo! Me encantó mi mesa de postres,  lo detallada que fuiste en todo, escuchaste cada cosita que te conté y armaste algo mucho más lindo de lo que esperaba, superando con creces mis expectativas.""
+                    </p>
+                    <p class="font-bold text-white uppercase tracking-widest text-sm">
+                        — Marisol F. (Guarne)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulario / Agenda tu Pedido -->
+    <section id="contacto" class="py-24 bg-crema">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="bg-white p-8 md:p-16 rounded-[3rem] shadow-xl border border-beige reveal">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold mb-4">Agenda tu pedido</h2>
+                    <p>Trabajamos bajo pedido</p>
+                    <p> Personalizados y eventos: 15 días de anticipación</p>
+                    <p>Recetas clásicas: 8 días de anticipación</p>
+                    <p class="text-gray-600">Completa los datos y revisamos disponibilidad</p>
+                </div>
+
+                <form id="orderForm" class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold uppercase tracking-widest text-gray-500">Nombre Completo</label>
+                            <input type="text" id="name" required class="w-full px-6 py-4 rounded-xl bg-crema border-none focus:ring-2 focus:ring-acento transition-all outline-none" placeholder="Tu nombre...">
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-bold uppercase tracking-widest text-gray-500">Municipio</label>
+                            <select id="location" required class="w-full px-6 py-4 rounded-xl bg-crema border-none focus:ring-2 focus:ring-acento transition-all outline-none">
+                                <option value="Marinilla">Rionegro</option>
+                                <option value="Rionegro">Guarne</option>
+                                <option value="Guarne">Marinilla</option>
+                                <option value="Otro">Otro (Consultar cobertura)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-bold uppercase tracking-widest text-gray-500">¿Qué antojo tienes hoy?</label>
+                        <textarea id="message" rows="4" required class="w-full px-6 py-4 rounded-xl bg-crema border-none focus:ring-2 focus:ring-acento transition-all outline-none" placeholder="Cuéntanos qué productos quieres pedir..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary w-full py-5 rounded-2xl text-lg font-bold flex justify-center items-center gap-3">
+                        Enviar pedido por WhatsApp <i data-lucide="send"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-crema border-t border-beige">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-2xl font-bold font-serif text-cafe-oscuro">SABORA</div>
+            <div class="text-gray-500 text-sm">
+                &copy; 2026 Sabora Repostería Fantasma. Hecho con amor en el Oriente Antioqueño.
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-cafe-oscuro hover:text-acento transition-colors"><i data-lucide="instagram"></i></a>
+                <a href="#" class="text-cafe-oscuro hover:text-acento transition-colors"><i data-lucide="facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Inicializar Iconos
+        lucide.createIcons();
+
+        // Rotación de mensajes en el Hero
+        const messages = [
+            "Postres que saben a hogar",
+            "Hechos a mano, pensados para compartir",
+            "El sabor  que enamora",
+            "Magia horneada desde el Oriente Antioqueño"
+        ];
+        let currentMsg = 0;
+        const typedElement = document.getElementById('typed-text');
+
+        function rotateMessages() {
+            typedElement.style.opacity = '0';
+            typedElement.style.transform = 'translateY(10px)';
+            
+            setTimeout(() => {
+                currentMsg = (currentMsg + 1) % messages.length;
+                typedElement.innerText = messages[currentMsg];
+                typedElement.style.opacity = '1';
+                typedElement.style.transform = 'translateY(0)';
+            }, 500);
+        }
+        setInterval(rotateMessages, 4000);
+
+        // Efecto Parallax sutil en el Hero
+        document.addEventListener('mousemove', (e) => {
+            const layers = document.querySelectorAll('.parallax-layer');
+            const x = (window.innerWidth - e.pageX * 2) / 100;
+            const y = (window.innerHeight - e.pageY * 2) / 100;
+
+            layers.forEach(layer => {
+                layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+
+        // Animación de aparición al hacer Scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Manejo del Formulario hacia WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const location = document.getElementById('location').value;
+            const message = document.getElementById('message').value;
+            
+            const whatsappNumber = "573225809278"; // Cambiar por el real
+            const text = `Hola! Soy ${name} de ${location}. Me gustaría pedir: ${message}`;
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
+            
+            window.open(url, '_blank');
+        });
+    </script>
+</body>
+</html>
